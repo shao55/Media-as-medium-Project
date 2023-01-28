@@ -31,6 +31,9 @@ h2 {
 img {
     width: 100%;
 }
+span {
+    opacity: 0.5;
+}
 /* Секция header */
 .header_nav {
     width: 100%;
@@ -47,6 +50,26 @@ img {
     margin: 64px 0;
 }
 /* Секция main */
+.tag {
+    background: linear-gradient(0deg, rgba(8, 30, 52, 0.12), rgba(8, 30, 52, 0.12)), #FFFBFE;
+    border-radius: 100px;
+    padding: 6px 16px;
+    border: 0;
+    font-weight: 500;
+    margin-right: 8px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+
+}
+.text_header {
+    display: flex;
+}
+.avatar {
+    width: 24px;
+    margin-right: 4px;
+}
 .content_element {
     display: flex;
     justify-content: space-between;
@@ -67,6 +90,18 @@ img {
 }
 .text_main {
     overflow: hidden;
+}
+.text_footer {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    justify-content: space-between;
+}
+.footer_right {
+    display: flex;
+}
+.tags_img {
+    margin-left: 14px;
 }
 /* Секция footer */
 .footer_main {
@@ -94,5 +129,11 @@ img {
     }
     .element_text {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 889px) {
+    .tags_img {
+        display: none;
     }
 }
