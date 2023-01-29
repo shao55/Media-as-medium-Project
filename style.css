@@ -87,6 +87,8 @@ span {
 }
 .element_img {
     width: 23.66071%;
+    display: flex;
+    align-items: center;
 }
 .text_main {
     overflow: hidden;

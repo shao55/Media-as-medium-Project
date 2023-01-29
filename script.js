@@ -1,19 +1,20 @@
-// main script
-const articles = document.getElementById("articles");
+// // main script
+const articlesHTML = document.getElementById("articles");
 
-function loadArticles() {
-    const promiseArcticle = new Promise((resolve, reject) => {
-        return setTimeout(() => 
-        resolve(articlesFromAPI), 3000)
+async function getArticles() {
+    const responce = await fetch('https://api.nytimes.com/svc/topstories/v2/world.json?api-key=Y23gzVGeS4SLPzmINGLH8m8G9yNI9ueF');
+    const respJSON = await responce.json();
+    const articles = respJSON.results;
+    console.log(articles);
+    articles.forEach(element => {
+        let newArticle = article.replace('id="title">',`id="title">${element.title}`);
+                    newArticle = newArticle.replace('id="summary">',`id="summary">${element.abstract}`);
+                    newArticle = newArticle.replace('src=""', `src="${element.multimedia[0].url}"`);
+                    newArticle = newArticle.replace('<button class="tag">Java Script', `<button class="tag">${element.section}`);
+                    newArticle = newArticle.replace('<a href="#">Authors name', `<a href="#">${element.byline}`);
+                    newArticle = newArticle.replace('<a href="#">Topics Name', `<a href="#">${element.subsection}`);
+                    articlesHTML.innerHTML += newArticle;
     });
-    promiseArcticle.then((result) => {
-        result.forEach((item) => {
-            let newArticle = article.replace('id="title">',`id="title">${item.title}`);
-            newArticle = newArticle.replace('id="summary">',`id="summary">${item.summary}`);
-            newArticle = newArticle.replace('src=""', `src="${item.src}"`);
-            articles.innerHTML += newArticle;
-        });
-    })
 };
 
-loadArticles();
+getArticles();
